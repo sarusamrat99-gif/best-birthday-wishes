@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Happy Birthday, Dad ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="intro">
+
+
+        <div class="intro-content">
+
+            <p class="small-text">
+                A little something for you...
+            </p>
+
+
+            <h1>
+                Happy Birthday, Dad ❤️
+            </h1>
+
+
+            <p class="subtitle">
+                Today is all about celebrating you.
+            </p>
+
+
+            <a
+                href="surprise.html"
+                class="surprise-button"
+                id="surpriseButton"
+            >
+                A little surprise awaits ✨
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- PRELOADED AUDIO (Fixed path to Audio/) -->
+    <audio
+        id="birthdayMusic"
+        src="Audio/Happy Birthday Rock - No vocals Backing track.mp3"
+        preload="auto"
+    ></audio>
+
+
+    <script>
+
+        const button =
+            document.getElementById("surpriseButton");
+
+        const music =
+            document.getElementById("birthdayMusic");
+
+
+        button.addEventListener("click", function (event) {
+
+            // Pause navigation for a split second to start the music
+            event.preventDefault();
+
+
+            sessionStorage.setItem(
+                "startBirthdayMusic",
+                "yes"
+            );
+
+
+            button.classList.add("clicked");
+
+
+            // Play audio immediately to pass browser permission check
+            if (music) {
+
+                music.play().then(() => {
+
+                    window.location.href =
+                        "surprise.html";
+
+                }).catch(() => {
+
+                    window.location.href =
+                        "surprise.html";
+
+                });
+
+            } else {
+
+                window.location.href =
+                    "surprise.html";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
